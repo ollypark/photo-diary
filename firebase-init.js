@@ -20,13 +20,3 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase
-if (typeof firebase !== 'undefined') {
-  firebase.initializeApp(firebaseConfig);
-  // Shortcuts
-  window.db = firebase.firestore();
-  window.storage = firebase.storage();
-} else {
-  console.warn("Firebase SDK not loaded. Make sure you have an internet connection or the SDK script tags.");
-}
