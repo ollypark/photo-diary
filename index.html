@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Photo Diary</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDKs (loaded from CDN at runtime) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="firebase-init.js"></script>
+</head>
+<body>
+  <header>
+    <h1>사진 일기 (Photo Diary)</h1>
+    <div class="top-actions">
+      <button id="prevMonth">◀</button>
+      <span id="monthLabel"></span>
+      <button id="nextMonth">▶</button>
+      <input id="searchInput" placeholder="사람,태그,장소 검색"/>
+      <button id="searchBtn">검색</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="calendar"></div>
+  </main>
+
+  <!-- Modal for adding/viewing diary -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close">✖</button>
+      <h2 id="modalDateLabel">YYYY-MM-DD</h2>
+
+      <div class="upload-section">
+        <input type="file" id="photoInput" accept="image/*" multiple />
+        <div id="photoPreview"></div>
+      </div>
+
+      <textarea id="diaryText" rows="6" placeholder="오늘의 일기..."></textarea>
+
+      <div class="meta">
+        <input id="peopleInput" placeholder="사람 태그(콤마로 구분)" />
+        <input id="tagsInput" placeholder="해시태그(콤마로, # 없이)" />
+        <input id="locationInput" placeholder="장소" />
+      </div>
+
+      <div class="modal-actions">
+        <button id="saveBtn">저장</button>
+      </div>
+
+      <div id="existingPhotos"></div>
+    </div>
+  </div>
+
+  <footer>
+    <small>GitHub Pages + Firebase 예제. firebase-init.js 파일에 설정을 넣어야 동작합니다.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
